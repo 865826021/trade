@@ -1,0 +1,81 @@
+{template 'header'}
+<div class="main">
+  <div class="mainnr">
+    <div class="listleft">
+	  {loop $maincat $cat_i $cat_id}
+	  <div class="listnr">
+	  <!--{php $catarr = tag("moduleid=16&catid=".$cat_id[catid]."&condition=status=3 and thumb<>''&pagesize=8&order=vip desc,addtime desc&template=null")}-->
+        <div class="list_tit clearfix"><em><a href="{$MODULE[16][linkurl]}{rewrite('list.php?catid='.$cat_id['catid'])}">更多&gt;&gt;&gt;</a></em>
+        	<h3>{if $cat_i!=0}<span></span>{else}<span class="letter">{$letter}</span>{/if}{$cat_id[catname]}</h3></div>
+        <ul>
+		  {loop $catarr $childcat}
+          <li><a href="{$childcat[linkurl]}"><img src="{strstr($childcat[thumb],'.thumb', true)}" width="199" height="124" /><b>{$childcat[title]}</b></a></li>
+		  {/loop}
+        </ul>
+      </div>
+	  {/loop}
+    </div>
+    <!--END listleft-->
+    <div class="listright">  
+       <div class="listrnr">
+        <h3>金融服务<span>FINANCIAL SERVICES</span></h3>
+        <dl>
+          <!--{tag("moduleid=21&&catid=224&condition=status=3&pagesize=10&order=addtime desc&template=list-news")}-->
+		  <h2><a class="more" href="{$MODULE[21][linkurl]}{rewrite('list.php?catid=224')}">更多资讯</a></h2>
+          <span><a href="#"><img src="{DT_SKIN}image/zximg3.jpg" width="138" height="86" /><img src="{DT_SKIN}image/zximg4.jpg" width="106" height="86" /></a></span>         
+        </dl>
+       </div> 
+       
+       <div class="listlt">
+        <h3>供求论坛<span>SUPPLY<br /> AND DEMAND FORUM</span></h3>
+        <ul>
+          <!--{tag("moduleid=21&&catid=225&condition=status=3&pagesize=10&order=addtime desc&template=list-news")}-->
+          <h2><a class="more" href="{$MODULE[21][linkurl]}{rewrite('list.php?catid=225')}">更多资讯</a></h2>
+        </ul>
+       </div> 
+    </div>
+    <!--END mainright-->
+  </div>  
+  <!--END mainnr-->
+  <div class="subbanner">
+  </div>
+  <!--END subbanner-->
+  <div class="expert">
+    <div class="expertnr">
+      <h2><span></span>投资评审专家<b>INVESTMENT REVIEW EXPERT</b></h2>
+      <div class="expertleft">
+        <h3>中国专家</h3>
+        <ul>
+		<!--{php $list=tag("moduleid=16&condition=status=3 and thumb<>'' and catid=342&pagesize=9&order=addtime desc,vip desc&template=null")}-->
+		{loop $list $v}
+         <li><img src="{$v[thumb]}" width="140" height="134" /><span>{$v[title]}专家<b>{$v[zhuanjiachengwei]}</b><a href="{$v[linkurl]}">详情</a></span></li>
+		{/loop}
+        </ul> 
+      </div>
+      <!--END expertleft-->
+      <div class="expertright">
+        <h3>外国专家</h3>
+        <ul>
+		<!--{php $list=tag("moduleid=16&condition=status=3 and thumb<>'' and catid=343&pagesize=9&order=addtime desc,vip desc&template=null")}-->
+		{loop $list $v}
+         <li><img src="{$t[thumb]}" width="140" height="134" /><span>{$v[title]}专家<b>{$v[zhuanjiachengwei]}</b><a href="{$v[linkurl]}">详情</a></span></li>
+		{/loop}
+        </ul> 
+      </div>
+      <!--END expertright-->
+      
+      <div class="law">
+       <h2><img src="{DT_SKIN}image/syxb2.jpg" width="38" height="21" />法律服务<b>LEFAL SERVICES</b></h2>
+       <div class="alone_block">
+       		<!--{php $list=tag("table=webpage&condition=itemid=6&pagesize=1&template=null")}-->
+       		{$list[0][content]}
+       </div>
+      </div>
+    </div>
+    <!--END expertnr-->
+    
+  </div>
+  <!--END expert-->
+</div>
+<!--END main-->
+{template 'footer'}

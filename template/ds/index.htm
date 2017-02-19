@@ -1,0 +1,190 @@
+{template 'header'}
+<script type="text/javascript" src="{DT_STATIC}file/script/jwplayer.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/jwplayer.html5.js"></script>
+<div class="banner">
+	<div class="video_logo"><div class="video_logo_img"><img src="{DT_SKIN}image/video_logo.png" /></div></div>
+	<ul class="banner_ul">
+		<li class="banner_video">
+			<div class="banner_video_div0">
+				<div id="banner0"></div>
+			</div>
+		</li>
+		<li class="banner_video">
+			<div class="banner_video_div1">
+				<div id="banner1"></div>
+			</div>
+		</li>
+	</ul>
+<script>
+$(function() {
+	var player_banner0 = jwplayer('banner0');
+	player_banner0.setup({ 
+		file: '/file/video/a.mp4',
+		width:1013,
+		height:400,
+		repeat:true,
+		autostart: true,
+		controls:false,
+		allowPlaylistControl:false,
+		assessControlBarState:false,
+		flashplayer:"/file/flash/jwplayer.swf"
+	});
+	var player_banner1 = jwplayer('banner1');
+	player_banner1.setup({ 
+		file: '/file/video/banner2.mp4',
+		width:894,
+		height:400,
+		repeat:true,
+		autostart: false,
+		controls:false,
+		allowPlaylistControl:false,
+		assessControlBarState:false,
+		flashplayer:"/file/flash/jwplayer.swf"
+	});
+	$('.banner').unslider({
+    	delay: false,
+		height:450,
+    	keys:false,
+    	arrows: false,
+		fluid: true,
+		dots: true
+    });
+	$('.dots li').click(function(){
+		var cur = $(this).index()==0?1:0;
+		jwplayer(cur).pause(true);
+		jwplayer($(this).index()).pause(false);
+	});
+});
+</script>
+</div>
+<!--END banner-->
+<!--------------->
+<div class="sh_erweima">
+	<div class="sh_erweima1"><img src="{DT_SKIN}image/qrcode.png"/></div>
+	<div class="sh_erweima2"><img src="{DT_SKIN}image/erweima.png" style="width:100%;"/><input type="button" class="sh_erweima3" value="隐藏"/></div>
+</div>
+<script>
+	$(".sh_erweima2").hide();
+	$(".sh_erweima1").hover(function(){
+		$(".sh_erweima2").show("slow");
+	});
+	$(".sh_erweima3").click(function(){
+		$(".sh_erweima2").hide("slow");
+	});
+</script>
+<!--------------->
+<div class="main">
+  <div class="mainnr">
+    <div class="mainleft">
+      <div class="leftnr">
+        <h2><img src="{DT_SKIN}image/syxb2.jpg" width="38" height="21" />全球化运营平台</h2>
+        <ul>
+			<!--{php $tags=tag("table=category&condition=parentid=0 and moduleid=16&pagesize=26&order=listorder&length=80&template=null");}-->
+			{loop $tags $i $t}
+	          <li{if $i==24} class="tebie"{/if}><a href="{$MODULE[16][linkurl]}{rewrite('category.php?catid='.$t['catid'])}"><img src="{DT_SKIN}image/syimg{$i+1}.png" width="124" height="124" /><span>{$t[letter]} {$t[catname]}<strong>{$t[catname_en]}</strong></span></a></li>
+			{/loop}
+        </ul>
+      </div>
+      <!--END leftnr-->
+<script type="text/javascript">
+$(function(){
+	$(".box").hover(function(){	
+		 $(this).children(".title").stop().animate({"top":155})
+		},function(){
+		 $(this).children(".title").stop().animate({"top":189})
+		})	
+	
+})
+
+</script>
+      <div class="products">
+        <h2><img src="{DT_SKIN}image/syxb2.jpg" width="38" height="21" />推荐产品Recommended products</h2>
+        <!--滚动图片 start-->
+        <div class="rollphotos">
+          <div class="blk_29">
+            <div class="LeftBotton" id="Leftarr"></div>
+            <div class="RightBotton" id="Rightarr"></div>
+            <div class="Cont" id="ISL_Cont_1"><!-- 图片列表 begin -->
+			<!--{php $list=tag("moduleid=16&condition=status=3 and thumb<>''&pagesize=".$DT[page_price]."&order=addtime desc,vip desc&template=null")}-->
+			{loop $list $i $t}			
+              <div class="box"><a class="imgBorder" href="{$t[linkurl]}" target="_blank"><img  src="{strstr($t[thumb],'.thumb', true)}" width="178" height="189"></a> 
+                 <span class="title">{$t[title]}</span>
+              </div>
+			 {/loop}
+            <!-- 图片列表 end --></div>
+            
+          </div>
+          <script language=javascript type=text/javascript>
+              <!--//--><![CDaTa[//><!--
+              var scrollPic_02 = new ScrollPic();
+              scrollPic_02.scrollContId   = "ISL_Cont_1"; //内容容器ID
+              scrollPic_02.arrLeftId      = "Leftarr";//左箭头ID
+              scrollPic_02.arrRightId     = "Rightarr"; //右箭头ID
+      
+              scrollPic_02.frameWidth     = 715;//显示框宽度
+              scrollPic_02.pageWidth      = 716; //翻页宽度
+      
+              scrollPic_02.speed          = 10; //移动速度(单位毫秒，越小越快)
+              scrollPic_02.space          = 716; //每次移动像素(单位px，越大越快)
+              scrollPic_02.autoPlay       = true; //自动播放
+              scrollPic_02.autoPlayTime   = 3; //自动播放间隔时间(秒)
+      
+              scrollPic_02.initialize(); //初始化
+                                  
+              //--><!]]>
+           </script> 
+         </div>
+        
+      </div>
+    </div>
+    <!--END mainleft-->
+    <div class="mainright">
+      <div class="righttop">
+        <h3>经贸资讯<span>NEWS AND INFORMATION</span></h3>
+        <dl>
+		<!--{tag("moduleid=21&&catid=224&condition=status=3&pagesize=10&order=addtime desc&template=list-news")}-->
+          <h2><a class="more" href="{$MODULE[21][linkurl]}{rewrite('list.php?catid=224')}">更多资讯</a></h2>  
+          <span><a href="#"><img src="{DT_SKIN}image/zximg1.jpg" width="138" height="86" /><img src="{DT_SKIN}image/zximg2.jpg" width="106" height="86" /></a></span>         
+        </dl>
+      </div>
+      
+      <div class="righttop">
+        <h3>出口风险预警<span>EARLY WARNING</span></h3>
+        <dl>
+          <!--{tag("moduleid=21&&catid=225&condition=status=3&pagesize=10&order=addtime desc&template=list-news")}-->
+          <h2><a class="more" href="{$MODULE[21][linkurl]}{rewrite('list.php?catid=225')}">更多资讯</a></h2>  
+          <span><a href="#"><img src="{DT_SKIN}image/zximg1.jpg" width="138" height="86" /><img src="{DT_SKIN}image/zximg2.jpg" width="106" height="86" /></a></span>         
+        </dl>
+      </div>
+      <div class="rightcon">
+        <ul>
+          <li class="bjzq"><a href="#"><span>北京专区<b>CANG ZHOU</b></span></a></li>
+          <li class="shzq"><a href="#"><span>上海专区<b>CANG ZHOU</b></span></a></li>
+          <li class="szzq"><a href="#"><span>深圳专区<b>CANG ZHOU</b></span></a></li>
+          <li class="gzzq"><a href="#"><span>广州专区<b>CANG ZHOU</b></span></a></li>
+        </ul>
+      </div>
+      
+      <div class="righttop">
+        <h3>展会信息<span>EXHIBITION INFORMATION</span></h3>
+        <dl>
+          <!--{tag("moduleid=21&&catid=226&condition=status=3&pagesize=10&order=addtime desc&template=list-news")}-->
+          <h2><a class="more" href="{$MODULE[21][linkurl]}{rewrite('list.php?catid=226')}">更多资讯</a></h2>  
+          <span><a href="#"><img src="{DT_SKIN}image/zximg3.jpg" width="138" height="86" /><img src="{DT_SKIN}image/zximg4.jpg" width="106" height="86" /></a></span>         
+        </dl>
+      </div>
+      
+      <div class="rightbot">
+        <h3>海外商机<span>BUSINESS OPPORTUNITY</span></h3>
+        <dl>
+          <!--{tag("moduleid=21&&catid=227&condition=status=3&pagesize=10&order=addtime desc&template=list-news")}-->
+          <h2><a class="more" href="{$MODULE[21][linkurl]}{rewrite('list.php?catid=227')}">更多资讯</a></h2>  
+        </dl>
+      </div>
+    </div>
+    <!--END mainright-->
+  </div>  
+  <!--END mainnr-->
+</div>
+<!--END main-->
+{template 'footer'}

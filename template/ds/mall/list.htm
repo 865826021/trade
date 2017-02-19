@@ -1,0 +1,43 @@
+{template 'header'}
+<script type="text/javascript">var sh = '{$MOD[linkurl]}search.php?catid={$catid}';</script>
+<div class="main">
+  <div class="mainnr">
+    <div class="listleft">
+	  <div class="listnr listpage">
+	  <!--{php $catarr = tag("moduleid=16&catid=".$cat_id[catid]."&condition=status=3 and thumb<>''&pagesize=8&order=vip desc,addtime desc&template=null")}-->
+        <div class="list_tit clearfix">
+        	<h3><span></span>{$CAT[catname]}</h3>
+		</div>
+        <ul class="clearfix">
+		  {loop $tags $k $t}
+          <li><a href="{$t[linkurl]}"><img src="{strstr($t[thumb],'.thumb', true)}" width="199" height="124" /><b>{$t[title]}</b><span>{$t[company]}</span></a></li>
+		  {/loop}
+        </ul>
+		<div class="pages clearfix">{$pages}</div>
+      </div>
+    </div>
+    <!--END listleft-->
+    <div class="listright">  
+       <div class="listrnr">
+        <h3>金融服务<span>FINANCIAL SERVICES</span></h3>
+        <dl>
+          <!--{tag("moduleid=21&&catid=224&condition=status=3&pagesize=10&order=addtime desc&template=list-news")}-->
+		  <h2><a class="more" href="{$MODULE[21][linkurl]}{rewrite('list.php?catid=224')}">更多资讯</a></h2>
+          <span><a href="#"><img src="{DT_SKIN}image/zximg3.jpg" width="138" height="86" /><img src="{DT_SKIN}image/zximg4.jpg" width="106" height="86" /></a></span>         
+        </dl>
+       </div> 
+       
+       <div class="listlt">
+        <h3>供求论坛<span>SUPPLY<br /> AND DEMAND FORUM</span></h3>
+        <ul>
+          <!--{tag("moduleid=21&&catid=225&condition=status=3&pagesize=10&order=addtime desc&template=list-news")}-->
+          <h2><a class="more" href="{$MODULE[21][linkurl]}{rewrite('list.php?catid=225')}">更多资讯</a></h2>
+        </ul>
+       </div> 
+    </div>
+    <!--END mainright-->
+  </div>  
+  <!--END mainnr-->
+</div>
+<!--END main-->
+{template 'footer'}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="renderer" content="webkit" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{if $seo_title}{$seo_title}{else}{if $head_title}{$head_title}{$DT[seo_delimiter]}{/if}{if $city_sitename}{$city_sitename}{else}{$DT[sitename]}{/if}{/if}</title>
+{if $head_keywords}
+<meta name="keywords" content="{$head_keywords}"/>
+{/if}
+{if $head_description}
+<meta name="description" content="{$head_description}"/>
+{/if}
+<link rel="shortcut icon" type="image/x-icon" href="{DT_STATIC}favicon.ico"/>
+<link rel="bookmark" type="image/x-icon" href="{DT_STATIC}favicon.ico"/>
+{if $EXT[archiver_enable]}
+<link rel="archives" title="{$DT[sitename]}" href="{$EXT[archiver_url]}"/>
+{/if}
+{if $head_mobile}
+<meta http-equiv="mobile-agent" content="format=html5;url={$head_mobile}">
+{/if}
+
+{if $moduleid>4}<link rel="stylesheet" type="text/css" href="{DT_SKIN}{$module}.css"/>{/if}
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}/ds_style.css" />
+<script type="text/javascript" src="{DT_STATIC}lang/{DT_LANG}/lang.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/config.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/jquery.js"></script>
+<!--[if lt IE 9]><script type="text/javascript" src="/file/script/html5.js"></script><![endif]-->
+<script type="text/javascript" src="{DT_STATIC}file/script/common.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/page.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/unslider.min.js"></script>
+{if $lazy}<script type="text/javascript" src="{DT_STATIC}file/script/jquery.lazyload.js"></script>{/if}
+{if $JS}
+{loop $JS $js}
+<script type="text/javascript" src="{DT_STATIC}file/script/{$js}.js"></script>
+{/loop}
+{/if}
+<script type="text/javascript" src="{DT_STATIC}file/script/ScrollPic.js"></script>
+{php $searchid = ($moduleid > 3 && $MODULE[$moduleid]['ismenu'] && !$MODULE[$moduleid]['islink']) ? $moduleid : 5;}
+<script>
+{if $head_mobile && $EXT[mobile_goto]}
+GoMobile('{$head_mobile}');
+{/if}
+var searchid = {$searchid};
+</script>
+</head>
+<body>
+<div class="top">
+  <div class="topnr">
+   <span><a href="http://www.chinaonlinetrade.com/">中国贸易在线首页</a>&nbsp;&nbsp;欢迎来到中国贸易在线&nbsp;&nbsp;&nbsp;<span id="ds_member"></a></span></span>
+  </div>  
+</div>
+<div class="top2">
+  <div class="top2nr">
+  	<div class="language">
+  		<div class="language_text">Language</div>
+	  	<div id='MicrosoftTranslatorWidget' class='Dark' style='color:white;background-color:#FB9F16'></div><script type='text/javascript'>setTimeout(function(){{var s=document.createElement('script');s.type='text/javascript';s.charset='UTF-8';s.src=((location && location.href && location.href.indexOf('https') == 0)?'https://ssl.microsofttranslator.com':'http://www.microsofttranslator.com')+'/ajax/v3/WidgetV3.ashx?siteData=ueOIGRSKkd965FeEGM5JtQ**&ctf=False&ui=true&settings=undefined&from=zh-CHS';var p=document.getElementsByTagName('head')[0]||document.documentElement;p.insertBefore(s,p.firstChild); }},0);</script>
+	  	<style>
+	  		#LauncherLogo{display:none !important;}
+	  		#LauncherTranslatePhrase {border: 1px #D82828 solid !important;}
+	  	</style>
+  	</div>
+     <div class="mianfeizhue">{if $_userid}欢迎您！{else}<a href="http://www.chinaonlinetrade.com/member/register.php">免费注册</a>{/if}</div>
+     <a href="http://www.chinaonlinetrade.com/"><img class="logo" src="{if $DT[logo]}{$DT[logo]}{else}{DT_SKIN}image/logo.png{/if}" width="232" height="55" /></a>
+		<div class="search">
+			<form action="{if $MODULE[$searchid][linkurl]}{$MODULE[$searchid][linkurl]}{else}/mall/{/if}search.php">
+				<input type="hidden" name="moduleid" value="{$searchid}"/>
+				<input type="hidden" name="spread" value="0"/>
+				<input type="hidden" name="fields" value="2"/>
+				<input type="hidden" name="catid" value="{$catid}"/>
+				<div class="select_box">
+					<div class="select_showbox">{if $searchid == 16 || $searchid == 5}贸易板块{elseif $searchid == 21}新闻资讯{elseif $searchid == 18 && $catid==230}法律服务{elseif $searchid == 18 && $catid==231}金融服务{elseif $searchid == 18 && $catid==340}专家服务{elseif $searchid == 14}视频{elseif $searchid == 18}交流论坛{/if}</div>
+					<ul class="select_option">
+						<li{if $searchid != 18 || $searchid != 21} class="selected"{/if} surl="/mall/" data-mid="16">贸易板块</li>
+						<li{if $searchid == 18} class="selected"{/if} surl="/bbs/" data-mid="18" data-cid="0">交流论坛</li>
+						<li{if $searchid == 21} class="selected"{/if} surl="/news/" data-mid="21">新闻咨询</li>
+						<li{if $searchid == 18 && $catid==230} class="selected"{/if} surl="/bbs/" data-mid="18" data-cid="230">法律服务</li>
+						<li{if $searchid == 18 && $catid==231} class="selected"{/if} surl="/bbs/" data-mid="18" data-cid="231">金融服务</li>
+						<li{if $searchid == 18 && $catid==340} class="selected"{/if} surl="/bbs/" data-mid="18" data-cid="340">专家服务</li>
+					</ul>
+				</div>
+				<input class="inp_srh" name="kw" value="{$kw}" autocomplete="off" placeholder="请输入您要搜索的关键字" >
+				<input class="btn_srh" type="submit" name="submit" value="搜索">
+			</form>
+		</div>
+  </div>
+</div>
+
+<!--END top-->
+<div class="nav">
+ <div class="navnr">
+  <div class="navleft">
+    <ul>
+       <li><a href="#"><img src="{DT_SKIN}image/syxb1.png" width="21" height="15" />战略框架</a>
+         <dl>
+            <dd><a href="{$MODULE[16][linkurl]}category.php?catid=4"><b>A</b><span>空中飞行器<strong>airplane sparepart</strong></span></a></dd>
+            <dd><a href="{$MODULE[16][linkurl]}category.php?catid=5"><b>B</b><span>高速轨道交通工具<strong>high speed rail and sparepart</strong></span></a></dd>
+            <dd><a href="{$MODULE[16][linkurl]}category.php?catid=6"><b>C</b><span>汽车、成套设备<strong>car and sparepart</strong></span></a></dd>
+            <dd><a href="{$MODULE[16][linkurl]}category.php?catid=7"><b>D</b><span>海上船舶<strong>ship and sparepart</strong></span></a></dd>
+            <dd><a href="{$MODULE[16][linkurl]}category.php?catid=8"><b>E</b><span>发电机组<strong>generating set</strong></span></a></dd>
+            <dd><a href="{$MODULE[16][linkurl]}category.php?catid=9"><b>F</b><span>金融服务<strong>financial service</strong></span></a></dd>
+            <dd><a href="{$MODULE[16][linkurl]}category.php?catid=10"><b>G</b><span>贵金属<strong>precious metal</strong></span></a></dd>
+            <dt><a href="{DT_PATH}sitemap/{rewrite('index.php?mid=16')}">更多>></a></dt>
+         </dl>
+       </li>
+    </ul>
+  </div>
+  <!--END navleft-->
+  <div class="navright">
+    <ul>
+       <li><a href="/">首页</a></li>
+       <li><a href="{$MODULE[21][linkurl]}">新闻资讯</a></li>       
+       <li><a href="{$MODULE[18][linkurl]}{rewrite('list.php?catid=230')}">法律服务</a></li>       
+       <li><a href="{$MODULE[18][linkurl]}">交流论坛</a></li>       
+       <li><a href="{$MODULE[18][linkurl]}{rewrite('list.php?catid=231')}">金融服务</a></li>
+       <li><a href="{$MODULE[18][linkurl]}{rewrite('list.php?catid=340')}">专家服务</a></li>
+    </ul>
+  </div>
+ </div>
+</div>
+<!--END nav-->
+<script>
+$(document).ready(function(){
+	$('.select_box').click(function(){
+		$('.select_option').toggle();
+	});
+	$('.select_option li').click(function(){
+		$(this).addClass('selected').siblings().removeClass('selected');
+		var text=$(this).text(),
+			mid = $(this).attr('data-mid'),
+			cid = $(this).attr('data-cid'),
+			surl = $(this).attr('surl');
+		$('.select_showbox').text(text);
+		$('input[name="moduleid"]').val(mid);
+		$('input[name="catid"]').val(cid);
+		$('.search').find('form').attr('action', surl + 'search.php');
+	});
+});
+</script>

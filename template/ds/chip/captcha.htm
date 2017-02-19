@@ -1,0 +1,38 @@
+<input name="captcha" class="text input-xlarge" id="captcha" type="text" onfocus="showcaptcha();" placeholder="验证码" onkeyup="checkcaptcha(this.value);" onblur="checkcaptcha(this.value);" />&nbsp;<img src="{DT_SKIN}image/loading.gif" title="验证码,看不清楚?请点击刷新&#10;字母不区分大小写" id="captchapng" class="captchapng" onclick="reloadcaptcha();"/><span id="ccaptcha"></span>
+<script type="text/javascript">
+function showcaptcha() {
+	Dd('captchapng').style.display='inline-block';
+	if(Dd('captchapng').src.indexOf('loading.gif') != -1) {
+		Dd('captchapng').src='{DT_PATH}api/captcha.png.php?action=image';
+	}
+	if(Dd('captcha').value=='点击显示') {
+		Dd('captcha').value='';
+	}
+}
+function reloadcaptcha() {
+	Dd('captchapng').src = '{DT_PATH}api/captcha.png.php?action=image&refresh='+Math.random();
+	Dd('ccaptcha').innerHTML = '';
+	Dd('captcha').value = '';
+}
+function checkcaptcha(s) {
+	if(!is_captcha(s)) return;
+	$.post(AJPath, 'action=captcha&captcha='+s,
+		function(data) {
+			if(data == '0') {
+				Dd('ccaptcha').className="check_right";
+			} else {
+				Dd('captcha').focus;
+				Dd('ccaptcha').className="check_error";
+			}
+		}
+	);
+}
+function is_captcha(v) {
+	if(v == '点击显示') return false;
+	if(v.match(/^[a-z0-9A-Z]{1,}$/)) {
+		return v.match(/^[a-z0-9A-Z]{4,}$/);
+	} else {
+		return v.length > 1;
+	}
+}
+</script>

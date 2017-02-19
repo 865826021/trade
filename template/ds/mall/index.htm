@@ -1,0 +1,15 @@
+{php $CSS = array('index');}
+{template 'header'}
+
+{if $MOD[page_inew]}
+<div class="m b10">&nbsp;</div>
+<div class="m">
+	<div class="box_head"><span class="f_r"><a href="{$MOD[linkurl]}{rewrite('search.php?new=1')}" rel="nofollow">更多&raquo;</a></span><strong>最新上架</strong></div>
+	<div class="box_body">
+		<div class="mthumb">
+		<!--{tag("moduleid=$moduleid&length=20&condition=status=3&areaid=$cityid&pagesize=".$MOD[page_inew]."&order=".$MOD[order]."&width=100&height=100&cols=6&target=_blank&lazy=$lazy&template=thumb-mall")}-->
+		</div>
+	</div>
+</div>
+{/if}
+{template 'footer'}

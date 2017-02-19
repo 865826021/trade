@@ -1,0 +1,112 @@
+{template 'header', $module}
+<script type="text/javascript">c(3);</script>
+<div class="menu">
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td class="tab" id="action_online"><a href="?action=liveonline&roomid={$_userid}"><span>开始直播</span></a></td>
+<td class="tab" id="action_add"><a href="?action=add"><span>添加排片</span></a></td>
+<td class="tab" id="action_index"><a href="?action=index"><span>排片记录</span></a></td>
+</tr>
+</table>
+</div>
+{if $action == 'add'}
+<form method="post">
+<input type="hidden" name="action" value="{$action}"/>
+<table cellspacing="1" cellpadding="6" class="tb">
+	<tr>
+		<td class="tl">开始时间</td>
+		<td class="tr">
+		<select name="post[s_hour]">
+			<?php
+				for($i=0;$i<24;$i++){
+					if($i < 10){
+						$hour = "0".$i;
+					}else{
+						$hour = $i;
+					}
+					echo '<option value="'.$i.'">'.$hour.'</option>';
+				}
+			?>
+		</select>:
+		<select name="post[s_minute]">
+			<?php
+				for($i=0;$i<=59;$i++){
+					if($i < 10){
+						$minute = "0".$i;
+					}else{
+						$minute = $i;
+					}
+					echo '<option value="'.$i.'">'.$minute.'</option>';
+				}
+			?>
+		</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="tl">结束时间</td>
+		<td class="tr">			
+		<select name="post[e_hour]">
+			<?php
+				for($i=0;$i<24;$i++){
+					if($i < 10){
+						$hour = "0".$i;
+					}else{
+						$hour = $i;
+					}
+					echo '<option value="'.$i.'">'.$hour.'</option>';
+				}
+			?>
+		</select>:
+		<select name="post[e_minute]">
+			<?php
+				for($i=0;$i<=59;$i++){
+					if($i < 10){
+						$minute = "0".$i;
+					}else{
+						$minute = $i;
+					}
+					echo '<option value="'.$i.'">'.$minute.'</option>';
+				}
+			?>
+		</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="tl">标题</td>
+		<td class="tr"><input name="post[title]" id="title" type="text" size="30" /></td>
+	</tr>
+	<tr>
+		<td class="tl"> </td>
+		<td class="tr">
+		<button type="submit" name="submit" class="btn_g"> 确 定 </button>
+		</td>
+	</tr>
+</table>
+</form>
+<script type="text/javascript">s('live_paipian');m('action_add');</script>
+{elseif $action == 'index' }
+<div class="bd">
+<table cellpadding="1" cellspacing="0" class="tb">
+<tr>
+<th>开始时间</th>
+<th>结束时间</th>
+<th>标题</th>
+<th>操作</th>
+</tr>
+{loop $lists $k $v}
+<tr onmouseover="this.className='on';" onmouseout="this.className='';" align="center">
+<td>{date('H:i',$v[starttime])}</td>
+<td>{date('H:i',$v[endtime])}</td>
+<td>{$v[title]}</td>
+<td><a href="?mid={$mid}&action=delete&itemid={$v[id]}" onClick="return confirm('确定要删除吗？此操作将不可撤销');"><img width="16" height="16" src="{DT_STATIC}{$MODULE[2][moduledir]}/image/delete.png" title="删除" alt=""/></a></td>
+</tr>
+{/loop}
+</table>
+</div>
+<div class="pages">{$pages}</div>
+<script type="text/javascript">s('live_paipian');m('action_index');</script>
+{elseif $action == 'liveonline' }
+<script type="text/javascript">s('live_onlie');m('action_online');</script>
+{template 'live_public', $module}
+{/if}
+{template 'footer', $module}

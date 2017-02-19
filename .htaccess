@@ -1,0 +1,7 @@
+RewriteEngine On
+
+#RewriteRule ^index.php/User/getuserinfo/roomnum/(\d)/*$	/member/liveonline.php?action=getuserinfo&roomnum=$1
+#RewriteRule ^index.php/User/createroom/roomtype/(\d)/*$	/member/liveonline.php?action=createroom&roomtype=$1
+#RewriteRule ^index.php/User/getuserinfo/roomnum/(\d)/*$	/member/liveonline.php?action=getUserInfo&roomnum=$1
+#RewriteRule ^index.php/User/makesnap2/*$					/member/liveonline.php?action=makesnap2
+#RewriteRule ^index.php/User/exitroom2/roomnum/(\d)/*$	/member/liveonline.php?action=exitroom2&roomnum=$1

@@ -1,0 +1,463 @@
+{if isset($is_public)}
+{if $DT_TOUCH}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="{DT_CHARSET}"/>
+<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width"/>
+<title>{$head_title}</title>
+{else}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset={DT_CHARSET}"/>
+<meta name="robots" content="nofollow"/>
+<meta http-equiv="x-ua-compatible" content="IE=8"/>
+<title>{if $head_title}{$head_title}{$DT[seo_delimiter]}{/if}商务中心{$DT[seo_delimiter]}{if $city_sitename}{$city_sitename}{else}{$DT[sitename]}{/if}</title>
+{/if}
+<link rel="shortcut icon" href="{DT_STATIC}favicon.ico"/>
+<link rel="bookmark" href="{DT_STATIC}favicon.ico"/>
+<link rel="stylesheet" type="text/css" href="{DT_STATIC}{$MODULE[2][moduledir]}/image/style.css"/>
+{if $DT_TOUCH}
+<link rel="stylesheet" type="text/css" href="{$EXT[mobile_url]}static/member.css"/>
+<script type="text/javascript">var Dbrowser = '{$DT_MOB[browser]}';</script>
+{else}
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}ie6.css"/>
+<script type="text/javascript" src="{DT_STATIC}file/script/ie6png.js"></script>
+<script type="text/javascript">DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<!--[if IE]>
+<style type="text/css">
+.head_user em {margin:-4px 0 0 -4px;}
+#mini_profile {margin:20px 0 0 -140px;}
+</style>
+<![endif]-->
+{/if}
+{if !DT_DEBUG}<script type="text/javascript">window.onerror= function(){return true;}</script>{/if}
+<script type="text/javascript" src="{DT_STATIC}lang/{DT_LANG}/lang.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/config.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/jquery.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/common.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/admin.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/member.js"></script>
+{if $DT_TOUCH}<script type="text/javascript" src="{$EXT[mobile_url]}static/js/fix.js"></script>{/if}
+<!--[以上为系统关键代码，请勿删除]-->
+</head>
+<body>
+<div id="msgbox" style="display:none;"></div>
+{dmsg()}
+{if $DT_TOUCH}
+<div id="head-bar">
+<div class="head-bar">
+<div class="head-bar-right"><a href="{$EXT[mobile_url]}my.php?action=back"><span>我的</span></a></div>
+<div class="head-bar-back"><a href="javascript:window.history.back();"><img src="{$EXT[mobile_url]}static/img/icon-back.png"/><span>返回</span></a></div>
+<div class="head-bar-title">{if $head_title}{$head_title}{else}会员中心{/if}</div>
+</div>
+<div class="head-bar-fix"></div>
+</div>
+{else}
+<div class="head" id="head">
+  <div class="head_m">
+    <div class="head_logo"><a href="{$MODULE[2][linkurl]}"><img src="{DT_STATIC}{$MODULE[2][moduledir]}/image/logo.png" alt="商务中心"/></a></div>
+    <div class="head_main">
+    <ul>
+    {if $_userid}
+    <li class="menu_1" id="menu_0" onClick="c(0);">会员服务</li>
+    <li class="menu_2" id="menu_1" onClick="c(1);">信息管理</li>
+    <li class="menu_2" id="menu_2" onClick="c(2);">交易管理</li>
+    {/if}
+    {if $_islive}
+    <li class="menu_2" id="menu_3" onClick="c(3);">直播管理</li>
+    {/if}
+    <li class="menu_2"><a href="{DT_PATH}">网站首页</a></li>
+    </ul>
+    </div>
+    <div class="head_user">
+      <div class="translate">
+        <div class="language_text">Language</div>
+          <div id='MicrosoftTranslatorWidget' class='Dark' style='color:white;background-color:#FB9F16'></div><script type='text/javascript'>setTimeout(function(){{var s=document.createElement('script');s.type='text/javascript';s.charset='UTF-8';s.src=((location && location.href && location.href.indexOf('https') == 0)?'https://ssl.microsofttranslator.com':'http://www.microsofttranslator.com')+'/ajax/v3/WidgetV3.ashx?siteData=ueOIGRSKkd965FeEGM5JtQ**&ctf=False&ui=true&settings=undefined&from=zh-CHS';var p=document.getElementsByTagName('head')[0]||document.documentElement;p.insertBefore(s,p.firstChild); }},0);</script>
+          <style>
+            #LauncherLogo{display:none !important;}
+            #LauncherTranslatePhrase {border: 1px #D82828 solid !important;}
+          </style>
+       </div>
+      {if $_userid}
+      <ul>
+      <li id="my_profile"><a href="avatar.php"><img src="{useravatar($_username, 'small')}" width="20" height="20" id="myavatar"/></a>
+      <div id="mini_profile" style="display:none;">
+      <div>
+      <dl>
+      <dt><span class="f_r"><a href="edit.php"><img src="{DT_STATIC}{$MODULE[2][moduledir]}/image/setting.gif" width="10" height="10" align="absmiddle" title="资料设置"/></a></span><span class="f_b px14">欢迎，{$_truename}</span> ({$_username}) <a href="{$MODULE[2][linkurl]}line.php" title="{if $_online}在线，点击隐身{else}隐身，点击上线{/if}"><img src="{DT_SKIN}image/user_{if $_online}on{else}off{/if}line.png" width="10" height="10" align="absmiddle"/></a></dt>
+      <dt><a href="{userurl($_username)}" target="_blank" title="{$_company}"><span class="f_black">{$_company}</span></a>({$MG[groupname]})&nbsp;&nbsp;&nbsp;<a href="profile.php"><span class="f_dblue">账户详情&raquo;</span></a></dt>
+      <dt><a href="record.php"><span class="f_black">{$DT[money_name]}:{$_money}</span></a> <span class="f_gray">|</span> 
+      <a href="credit.php"><span class="f_black">{$DT[credit_name]}:{$_credit}</span></a></dt>
+      </dl>
+      </div>
+      </div>
+      </li>
+      <li id="destoon_message"><a href="message.php">消息</a>{if $_message}<em>{$_message}</em>{/if}</li>
+      {if $DT[im_web]}<li id="destoon_chat"><a href="chat.php">对话</a>{if $_chat}<em>{$_chat}</em>{/if}</li>{/if}
+      <li><a href="logout.php?forward=">退出</a></li>
+      {if $admin_user}<li><a href="index.php?action=logout">注销授权</a></li>{/if}
+      </ul>
+      {else}
+        <a href="{$DT[file_login]}">立即登录</a> | 
+        <a href="{$DT[file_register]}">注册会员</a>
+      {/if}   
+    </div>
+    <div class="c_b"></div>
+  </div>
+</div>
+<div class="head_s" id="destoon_space">&nbsp;</div>
+{/if}
+{/if}
+<link rel="stylesheet" href="/member/image/common.css" type="text/css"/>
+<script type="text/javascript" language="javascript" src="/file/script/CoreJS/swfobject.js"></script>
+<script type="text/javascript" language="javascript" src="/file/script/CoreJS/common_live.js"></script>
+<script type="text/javascript" language="javascript" src="/file/script/CoreJS/logon-2.0.js"></script>
+<script type="text/javascript" language="javascript" src="/file/script/nodejs/wapchat.js"></script>
+<script type="text/javascript" language="javascript" src="/file/script/CoreJS/interface.js"></script>
+<script type="text/javascript" language="javascript" src="/file/script/CoreJS/chatRoom.js"></script>
+<script type="text/javascript" language="javascript">
+  var roomid = getParam("roomid");
+  //初始化收藏
+  var uid = "0";
+  var touid = "0";
+  document.domain = "{$DT['roodomain']}";
+  var speaktxt = '| 输入文字不超过50个字';
+  var _show = {
+    // "isHD": 0,
+    // "enterChat": 0,
+    // "emceeId": "0",
+    "userId":'{$_userid}',
+    "usernickname":'{$_username}',
+    "fps": "15",
+    "cdnl": "{$DT['livecdn']}:{$DT['livecdnport']}",
+    "cdn": "{$DT['livecdn']}:{$DT['livecdnport']}",
+    "zddk": "0",
+    "pz": "95",
+    "zjg": "60",
+    "height": "640",
+    "width": "480",
+    "roomId": roomid,
+    "bgimg": "",
+  };
+  function get_url(){
+    var url=window.location.href; 
+    return url;
+  }
+</script>
+<div style="position:absolute; left:600px;z-index: 999; top:0px;"><div id="flashCallMike"></div></div>
+<div id="ChatWrap" style="position:absolute; left:184px; top:-100000px; z-index:99; width:290px; height:150px;">
+  <div id="flashCallChat"></div>
+  <script type="text/javascript">
+    swfobject.embedSWF("/file/flash/5ShowChat.swf?roomId="+roomid+"&rtmpHost={$DT['nodejs']}&rtmpPort={$DT['livecdnport']}&appName=5show", "flashCallChat", 200, 150, "10.0", "", {},
+    {
+      wmode: "transparent",
+      allowscriptaccess: "always"
+    });
+    setTimeout(function() {
+      setInterval(function() {
+        if (_show.enterChat != 1) {
+          $("#chat_hall").append("<font color='red'>聊天服务器未开启....</font><br>");
+        }
+      },
+      2000);},2000);</script>
+</div>
+  <div id="container" class="ZBJ_Main zbj_middle ">
+    <div class="wrap wrap2">
+      <div class="main-flash">
+        <div class="zbj_windows_body">
+          <div class="zbj_windows">
+            <div class="windows_flash">
+              <div style="position: absolute; z-index: 99; left: 0px;">
+                <div>
+                  <div id=livebox></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--主播操作菜单-->
+          <div class="clear"></div>
+        </div>
+
+        <div class="giving" style="background-color: #ddd;height: 200px;overflow :auto;line-height: 30px;">
+          <div style="font-size: 14px;text-align: center; font-weight: bold;padding: 10px">排片表 - {$truename}</div>
+          <table cellpadding="1" cellspacing="0" class="tb">
+            <tr>
+              <th>直播时间</th>
+              <th>直播内容</th>
+              {if isset($is_public)}
+              <th>当前状态</th>
+              {/if}
+            </tr>
+            {loop $lists $k $v}
+            <tr onmouseover="this.className='on';" onmouseout="this.className='';" align="center"{if $v[turnon]} style="background-color: #eee"{/if}>
+              <td>{$v[stime]}~{$v[etime]}</td>
+              <td>{$v[title]}</td>
+              {if isset($is_public)}
+              <td>{if $v[status]==0}时间未到{elseif $v[status]==1}正在直播{elseif $v[status]==2}等待直播{else}直播结束{/if}</td>
+              {/if}
+            </tr>
+            {/loop}
+          </table>
+        </div>
+
+
+      </div>
+      <div class="main_chat">
+        <div class="chat-tip">
+          <div class="chatroom_area" id="chatroom_area">
+            <div class="chat_area">
+              <!-- <h2 class="play-t">
+                <span id="lm4_1" class="on" onClick="turn(1,4,4);">公聊【<a href=javascript:void(0); style="color:#eecd33" onclick=Manage.SetchatPublic(this); state=1 class=m-chat id=chatSet></a>】</span></h2> -->
+              <div class="chat" id="content4_1">
+                <!-- <div class="room_notice">
+                  <strong>【房间公告】</strong>:
+                  <span id="room_public_notice"><a href="javascript://" target="_blank"><font></font></a></span>
+                </div> -->
+                <div id="upChat" class="chat_room chat_public">
+                  <div class="chat_btn" style="display:none;">
+                    <span class="btn_clearMsg" onClick="Chat.clearChat('pulic');">清屏</span>
+                    <a class="screen_btn" href="javascript:void(0);" onClick="Chat.scrollChat();">
+                      <cite id="scrollSign" class="on">滚屏</cite></a>
+                  </div>
+                  <div id="chat_hall" class="chat_hall"></div>
+                </div>
+                <div id="dragLine" class="rolling"></div>
+                <div id="downChat" class="chat_room chat_private">
+ <!--                  <div class="chat_btn" style="display:none;">
+                    <span class="btn_clearMsg" onClick="Chat.clearChat('private');">清屏</span>
+                    <a onClick="Chat.turnPrivateChat();" href="javascript:void(0);" class="screen_btn">
+                      <cite class="off" id="privateSign">开启私聊</cite></a>
+                  </div> -->
+                  <div id="chat_hall_private" class="chat_hall">
+                    <div class="pri_txt">
+                      <span id="room_private_notice">
+                        <a href="javascript://" target="_blank" style="color: #fff">欢迎进入{$username}直播间</a>
+                      </span>
+                    </div>
+                    <div class="pri_login"></div>
+                  </div>
+                </div>
+                <p id="chat_close" class="chat_close">房间公聊关闭</p></div>
+            </div>
+          </div>
+          <div class="chatroom_limit" id="chatroom_limit">
+            <img src="/member/image/cover_screen.jpg" /></div>
+        </div>
+        <div class="chat_msg">
+          <div class="xianze">
+            <strong>对</strong>
+            <p>
+              <span id="msg_to_all" class="msg_to_all">所有人</span>
+              <span id="msg_to_one" style="display:none;" onClick="GiftCtrl.closeToWho();" class="msg_to_one">
+                <span>MYGO无奈</span></span>
+              <input type="hidden" value="" id="to_user_id" name="to_user_id" />
+              <input type="hidden" value="" id="to_nickname" name="to_nickname" />
+              <input type="hidden" value="" id="to_goodnum" name="to_goodnum" /></p>
+            <!-- <p>
+              <input type="checkbox" class="in_check" id="whisper" name="whisper" disabled="disabled" />
+              <label for="whisper">悄悄</label></p> -->
+            <div onClick="javascript:Face.showFace();" id="showFaceInfo" class="msg_face"></div>
+          </div>
+          <p>
+            <input type="text" class="in_tx" id="msg" onKeyDown="Chat.submitForm(event);" name="msg" /></p>
+          <button id="btnsay" class="say sayon" onClick="Chat.doSendMessage();" type="button" value="发言"></button>
+          <!-- <button class="say fly" onClick="Chat.dosendFly();" type="button" value="飞屏"></button> -->
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+
+<div id="flashFlyWord"></div>
+
+<script>
+swfobject_h.embedSWF("/file/flash/FlyWord.swf", "flashFlyWord",1,1, "10.0", "", {},{wmode:"transparent",allowscriptaccess:"always"});
+</script>
+
+<div class="p-Song" id="chatOff">
+  <div class="m-songt"><h4>提示</h4></div>
+  <div class="m-songv">
+    <div class="promt-msg">
+      <p class="msg-text">您与聊天服务断开连接！</p>
+      <div class="msg-btn"><span class="play-btn" id="chat_button">确定</span></div>
+    </div>
+  </div>
+</div>
+<div class="pop_hinfo" id="hoverPerson">
+  <div class="hover_des">
+    <h4 id="person_title"></h4>
+    <ul id="ctrllist">
+      <li onClick="ChatApp.ShutUp();" class="tdeal">
+        <img src="/member/image/zbj_user_ico4.png">禁言5分钟</li>
+      <li onClick="ChatApp.Resume();" class="tdeal">
+        <img src="/member/image/zbj_user_ico5.png">恢复发言</li>
+      <li onClick="ChatApp.Kick();" class="tdeal">
+        <img src="/member/image/zbj_user_ico8.png">踢出一小时</li>
+      <span class="menuline"></span>
+      <li onClick="UserListCtrl.chatPublic();"><img src="/member/image/zbj_user_ico6.png">公开地说</li>
+      <li onClick="UserListCtrl.chatPrivate();"><img src="/member/image/zbj_user_ico6.png">悄悄的说</li>
+      <li>
+        <a href="javascript:void(0);" title="" class="enterroom" target="_blank">
+          <img src="/member/image/zbj_user_ico6.png">进入房间</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class=playerBox id=playerBox><div class=playerlist><ul id=gift_userlist></ul></div></div>
+
+
+<div class=playerBox id=playerBox1>
+  <div class=playerlist>
+    <ul id=chat_userlist></ul>
+  </div>
+</div>
+<div class=p-Song id=alertBox>
+  <div class=m-songt>
+    <span class=s-close id=close_msg></span>
+    <h4>提示</h4></div>
+  <div class=m-songv>
+    <div class=promt-msg>
+      <p class=msg-text id=msg_text></p>
+      <div class=msg-btn id=poptype1>
+        <span class=play-btn id=data-confirm>确定</span></div>
+      <div class=msg-btn id=poptype2>
+        <span id=btnAgree class=play-btn>同意</span>
+        <span id=btnDisgree class=play-btn>取消</span></div>
+      <div class=msg-btn id=poptype3>
+        <span class=play-btn id=btnConfirm>确定</span></div>
+    </div>
+  </div>
+</div>
+
+</div></div></div>
+<div class="UbbFace" id="ChatFace">
+  <div class="faceinfo">
+    <em onClick="javascript:Face.addEmot('[`OK`]');" class=face1 title=OK></em>
+    <em onClick="javascript:Face.addEmot('[`baiyan`]');" class=face2 title=白眼></em>
+    <em onClick="javascript:Face.addEmot('[`bao`]');" class=face3 title=抱抱></em>
+    <em onClick="javascript:Face.addEmot('[`caidao`]');" class=face4 title=菜刀></em>
+    <em onClick="javascript:Face.addEmot('[`chengrang`]');" class=face5 title=承让></em>
+    <em onClick="javascript:Face.addEmot('[`chouren`]');" class=face6 title=愁人></em>
+    <em onClick="javascript:Face.addEmot('[`daku`]');" class=face7 title=大哭></em>
+    <em onClick="javascript:Face.addEmot('[`daxiao`]');" class=face8 title=大笑></em>
+    <em onClick="javascript:Face.addEmot('[`danding`]');" class=face9 title=淡定></em>
+    <em onClick="javascript:Face.addEmot('[`ding`]');" class=face10 title=顶></em>
+    <em onClick="javascript:Face.addEmot('[`feiwen`]');" class=face11 title=飞吻></em>
+    <em onClick="javascript:Face.addEmot('[`ganka`]');" class=face12 title=尴尬></em>
+    <em onClick="javascript:Face.addEmot('[`geili`]');" class=face13 title=给力></em>
+    <em onClick="javascript:Face.addEmot('[`gouyin`]');" class=face14 title=勾引></em>
+    <em onClick="javascript:Face.addEmot('[`guzhang`]');" class=face15 title=鼓掌></em>
+    <em onClick="javascript:Face.addEmot('[`guiba`]');" class=face16 title=跪拜></em>
+    <em onClick="javascript:Face.addEmot('[`hainiu`]');" class=face17 title=害羞></em>
+    <em onClick="javascript:Face.addEmot('[`houhou`]');" class=face18 title=吼吼></em>
+    <em onClick="javascript:Face.addEmot('[`huaixiao`]');" class=face19 title=坏笑></em>
+    <em onClick="javascript:Face.addEmot('[`huoda`]');" class=face20 title=火大></em>
+    <em onClick="javascript:Face.addEmot('[`jianxiao`]');" class=face21 title=奸笑></em>
+    <em onClick="javascript:Face.addEmot('[`jingya`]');" class=face22 title=惊讶></em>
+    <em onClick="javascript:Face.addEmot('[`kaixin`]');" class=face23 title=开心></em>
+    <em onClick="javascript:Face.addEmot('[`kelian`]');" class=face24 title=可怜></em>
+    <em onClick="javascript:Face.addEmot('[`kuangxiao`]');" class=face25 title=狂笑></em>
+    <em onClick="javascript:Face.addEmot('[`liangzai`]');" class=face26 title=靓仔></em>
+    <em onClick="javascript:Face.addEmot('[`meinv`]');" class=face27 title=美女></em>
+    <em onClick="javascript:Face.addEmot('[`meiyan`]');" class=face28 title=媚眼></em>
+    <em onClick="javascript:Face.addEmot('[`outu`]');" class=face29 title=呕吐></em>
+    <em onClick="javascript:Face.addEmot('[`piaoguo`]');" class=face30 title=飘过></em>
+    <em onClick="javascript:Face.addEmot('[`qinqin`]');" class=face31 title=亲亲></em>
+    <em onClick="javascript:Face.addEmot('[`sese`]');" class=face32 title=色色></em>
+    <em onClick="javascript:Face.addEmot('[`shangbuqi`]');" class=face33 title=伤不起></em>
+    <em onClick="javascript:Face.addEmot('[`byebye`]');" class=face34 title=拜拜></em>
+    <em onClick="javascript:Face.addEmot('[`tiaoxi`]');" class=face35 title=调戏></em>
+    <em onClick="javascript:Face.addEmot('[`touxiao`]');" class=face36 title=偷笑></em>
+    <em onClick="javascript:Face.addEmot('[`tuxue`]');" class=face37 title=吐血></em>
+    <em onClick="javascript:Face.addEmot('[`wabi`]');" class=face38 title=挖鼻></em>
+    <em onClick="javascript:Face.addEmot('[`weiguan`]');" class=face39 title=围观></em>
+    <em onClick="javascript:Face.addEmot('[`weiqu`]');" class=face40 title=委屈></em>
+    <em onClick="javascript:Face.addEmot('[`wuyu`]');" class=face41 title=无语></em>
+    <em onClick="javascript:Face.addEmot('[`yali`]');" class=face42 title=鸭梨></em>
+    <em onClick="javascript:Face.addEmot('[`ye`]');" class=face43 title=耶></em>
+    <em onClick="javascript:Face.addEmot('[`zeml`]');" class=face44 title=怎么了></em>
+    <em onClick="javascript:Face.addEmot('[`zhuaguang`]');" class=face45 title=抓狂></em>
+  </div>
+
+</div>
+<script type="text/javascript" language="javascript">$(function(){
+  InitCache();
+});
+  jQuery(document).ready(function () {
+    // $('#dragLine').KSubfield({
+    //   _axes : 'y',//y = pageY, y=page=Y
+    //   _axesElement : '#upChat,#downChat' //上下 DIV元素
+    // });
+  });
+</script>
+<script type="text/javascript">if (Sys.ie6) {
+    $(".lpet,.rpet").css({
+      "position": "absolute",
+      "top": (window.screen.height - window.screenTop + document.documentElement.scrollTop - 446) + "px"
+    });
+
+    window.onscroll = function() {
+
+      $(".lpet,.rpet").css({
+        "top": (window.screen.height - window.screenTop + document.documentElement.scrollTop - 446) + "px"
+      });
+    }
+  }
+  setInterval("Chat.doSendMessage2()", 10000);
+  $(document).ready(function(e) {
+    $(".gamebuts").click(function() {
+      $(this).find(".room_pop1").show();
+    });
+    $(".room_pop1").mouseleave(
+    function() {
+      $(this).hide();
+    }
+    );
+
+    $(".room_sidebar ul li").hover(
+
+    function() {
+
+      $(this).find("div").show();
+
+      $(this).addClass("mm");
+
+    },
+
+    function() {
+
+      $(this).find("div").hide();
+
+      $(this).removeClass("mm");
+
+    }
+
+    );
+
+    $('#mike_btn').click(function() {
+
+      Chat.doUpMike();
+
+    });
+
+  });
+  </script>
+<!-- JiaThis Button BEGIN -->
+<script type="text/javascript" >
+var jiathis_config={
+  summary:"",
+  showClose:true,
+  shortUrl:false,
+  hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jiathis_r.js?btn=r5.gif&move=0" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+{if isset($is_public)}
+</body>
+</html>
+{/if}

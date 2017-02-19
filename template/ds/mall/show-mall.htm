@@ -1,0 +1,180 @@
+{template 'header'} 
+<script type="text/javascript">var module_id= {$moduleid},item_id={$itemid},content_id='content',img_max_width={$MOD[max_width]};</script>
+<div class="main">
+	<div class="nymain">
+		<div class="nyleft">
+			<div class="pos">当前位置: <a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; {cat_pos($CAT, ' &raquo; ')}</div>
+			<div class="nyleft_top">
+				<div class="pronr">
+					<div class="v_out v_out_p">
+						<div id="preview" class="spec-preview"> <span class="jqzoom"><img jqimg="{$albums[0]}" src="{$albums[0]}" /></span> </div>
+						<div class="spec-scroll"> <a class="prev">&lt;</a> <a class="next">&gt;</a>
+							<div class="items">
+								<ul>
+								{loop $thumbs $k $v}
+									<li><img bimg="{strstr($v,'.thumb', true)}" src="{$v}" onmousemove="preview(this);"></li>
+								{/loop}
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="pronl">
+						<h3 class="mall_title">{$title}</h3>
+						<ul class="mall_info_list clearfix">
+						{if !$CAT[has_price]}
+							<li>
+								<div class="fl f_gray_999">价格：</div>
+								<div class="fl pr mall_price">￥<em>{$price}</em> </div>
+							</li>
+						{/if}
+						{loop $fields_text $v}
+							<li>
+								<div class="fl f_gray_999">{$v[title]}：</div>
+								<div class="fl pr"> <em>{$v[value]}</em> </div>
+							</li>
+						{/loop}
+						</ul>
+					</div>					
+				</div>
+			</div>
+			{loop $fields_editor $v}
+				<li>
+					<div class="fl f_gray_999">{$v[title]}：</div>
+					<div class="fl pr"> <em>{$v[value]}</em> </div>
+				</li>
+			<div class="bg_white mt15">
+				<div class="js_box">
+					<h4>{$v[title]}</h4>
+					<div class="js_text">
+					　　{$v[value]}
+					</div>
+				</div>
+			</div>
+			{/loop}
+			<div class="bg_white mt15">
+				<div class="js_box">
+					<h4>自我介绍</h4>
+					<div class="js_text">
+					　　之前相信缘分，一直觉得好的爱情就是在对的时间遇到对的人。之后发现，所谓对的人也是需要时间的积累逐渐培养起来的。缘分这东西瞬息万变，一不留神就会错过，只有知道自己要什么才能遇到并抓住对的缘分。（为了避免浪费彼此的时间，先说一下基本的标准：88-82年，有正经工作，月收入超过6K, 身高178-185，学历本科以上，整洁有修养，人品端正。）性格算温柔，希望你包容，接受我偶尔的小脾气。很慢热，希望你有耐心不浮躁。对于初遇的我们来说，你无非是个陌生人，和其他成千上万个陌生人没有什么区别。我不需要你。你也不需要我。对你来说，我无非是另一个路人甲，和其他成千上万个路人甲没有什么不同。但如果你驯化了我，那我们就会彼此需要。你对我来说是独一无二的，我对你来说也是独一无二的。
+					</div>
+				</div>
+			</div>
+			<div class="bg_white mt15">
+				<div class="js_box">
+					<h4>其他资料</h4>
+					<ul class="js_list clearfix">
+						<li class="fn-clear"><span>XX：</span><div class="ifno_r_con">26-32岁之间</div></li>
+						<li class="fn-clear"><span>身&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高：</span><div class="ifno_r_con">175-185厘米</div></li>
+					</ul>
+					<p class="js_tip_text">标有<span class="col_red">*</span>的择偶条件是必须符合的条件</p>
+				</div>
+			</div>
+			{if $videoid}
+			<div class="bg_white mt15">
+				<div class="js_box">
+					<h4>视频</h4>
+					<div class="video_div">
+						<img src="{$video_thumb}" />
+						<div class="play_btn"><img src="{DT_SKIN}image/play_btn.png" /></div>
+					</div>
+				</div>
+			</div>
+			{/if}
+		</div>
+		<!--END mainleft-->
+		<div class="nyright">
+			<div class="nyright_top">
+				<h3>投资评审-中国专家</h3>
+				<dl>
+					<dd> <img src="{DT_SKIN}image/zjimg3.jpg" width="118" height="113" /><span>张伟明专家<b>金融理财师</b><a
+							href="#">点击</a></span> </dd>
+					<dd> <img src="{DT_SKIN}image/zjimg3.jpg" width="118" height="113" /><span>张伟明专家<b>金融理财师</b><a
+							href="#">点击</a></span> </dd>
+					<dd> <img src="{DT_SKIN}image/zjimg3.jpg" width="118" height="113" /><span>张伟明专家<b>金融理财师</b><a
+							href="#">点击</a></span> </dd>
+					<dt> <a class="more" href="#">了解更多</a> </dt>
+				</dl>
+			</div>
+			<div class="nyright_con">
+				<h3>投资评审-中国专家</h3>
+				<dl>
+					<dd> <img src="{DT_SKIN}image/zjimg3.jpg" width="118" height="113" /><span>张伟明专家<b>金融理财师</b><a
+							href="#">点击</a></span> </dd>
+					<dd> <img src="{DT_SKIN}image/zjimg3.jpg" width="118" height="113" /><span>张伟明专家<b>金融理财师</b><a
+							href="#">点击</a></span> </dd>
+					<dd> <img src="{DT_SKIN}image/zjimg3.jpg" width="118" height="113" /><span>张伟明专家<b>金融理财师</b><a
+							href="#">点击</a></span> </dd>
+					<dt> <a class="more" href="#">了解更多</a> </dt>
+				</dl>
+			</div>
+			<div class="nyright_bot">
+				<h3> 法律服务<span>LEGAL SERVICES</span> </h3>
+				<dl>
+					<dt> <a href="#">签订和履行国际贸易合同<br />
+						应注意的问题： </a> </dt>
+					<dd>一、签订和履行国际贸易合同应注意哪些问题：
+						1、做好签约前的市场调查和资信调查资信调查是指专业调查机构接受当事人的委托，对当事人指定的有业务关系（或潜在业务关系）的企业的主体资格、规模、资产负债、信用状况、履约能力、社会评价、出资人情况等信息，通过一定手段和途径进行考察、了解，并出具专业报告书的一项法律服务。
+						2、选择适当的合同形式二、企业上市的条件要求
+						1、企业为什么要上市：企业上市，是其迅速发展壮大的主要途径。企业上市属于股权融资、直接融资，与向银行贷款等间接融资方式相比，具有明显的优势：上市融入的资金具有永久性，无需归还，可以大幅度降低企业财务成本，免受国家收缩银根等金融政策的影响；募集资金数量大、速度快；企业上市后就获得了在资本市场持续的融资的通道入的资金可以作为其它融资方式的基础，提高企业举债能力。</dd>
+					<h2> <a class="more" href="#">更多资讯</a> </h2>
+				</dl>
+			</div>
+		</div>
+		<!--END mainright--> 
+	</div>
+	<!--END mainnr--> 
+</div>
+<script type="text/javascript" src="{DT_STATIC}file/script/jquery.jqzoom.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/mall-show.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/layer/layer.js"></script>
+{if $content} 
+<script type="text/javascript" src="{DT_STATIC}file/script/content.js"></script> 
+{/if} 
+<script type="text/javascript">
+$('.play_btn').on('click', function(){
+    layer.open({
+		type: 2,
+		title: '{$video_t}',
+		shadeClose: true,
+		shade: 0.8,
+		area: ['{$video_w}px', '{$video_h}px'],
+		content: '/mall/show.php?videoid={$videoid}'
+	});
+});
+var mallurl = '{$MOD[linkurl]}';
+var mallid = {$itemid};
+var n_c = {$comments};
+var n_o = {$orders};
+//var c_c = Dd('c_comment').innerHTML;
+//var c_o = Dd('c_order').innerHTML;
+var s_s = {'1':0,'2':0,'3':0};
+var m_l = {
+	no_comment:'暂无评论',
+	no_order:'暂无交易',
+	no_goods:'商品不存在或已下架',
+	no_self:'不能添加自己的商品',
+	lastone:''
+};
+</script> 
+<script type="text/javascript" src="{DT_STATIC}file/script/mall.js"></script> 
+<script type="text/javascript">
+{if $P1}addE(1);{/if}
+{if $P2}addE(2);{/if}
+{if $P3}addE(3);{/if}
+if(window.location.href.indexOf('#') != -1) {
+	var t = window.location.href.split('#');
+	try {Mshow(t[1]);} catch(e) {}
+}
+</script> 
+{if $video_i}<script type="text/javascript" src="{DT_STATIC}file/script/player.js"></script>{/if}
+{if $content}<script type="text/javascript" src="{DT_STATIC}file/script/content.js"></script>{/if}
+{if $video_i}
+<script type="text/javascript">
+if(UA.match(/(iphone|ipad|ipod|android|mac os)/i)) {
+	if(Dd('player').innerHTML.indexOf('embed')!=-1) {
+		Dd('player').innerHTML = '<div class="player">'+player('{$video_s}', {$video_w}, {$video_h}, 0, {$video_a})+'</div>';
+	}
+}
+</script>
+{/if}
+{template 'footer'}

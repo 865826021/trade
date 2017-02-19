@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xn="http:///www.renren.com/2009/xnml">
+<head>
+<meta http-equiv="Pragma" contect="no-cache"/>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<script type="text/javascript" src="/file/script/config.js"></script>
+<script type="text/javascript" src="/file/script/jquery.js"></script>
+<script type="text/javascript" src="/file/script/common.js"></script>
+
+<style type="text/css">
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,form,fieldset,input,textarea,p,table,th,td{margin:0;padding:0;}
+body{font-size:12px;color:#333;font-family:"宋体",Arial,Helvetica,sans-serif;}
+input,select,button,textarea{vertical-align:middle;font-size:12px;outline:none;}
+ol,ul{list-style:none;}img{border:0;}
+/* 公用*/
+.joymodlogin{margin:0 auto;width:500px;color:#333;text-align:left;font-size:12px;height:auto;border:1px solid #d2d2d2;background:url(http://zhibo.test.com/public/images/usercenter/big.png) repeat-x #fff; font-family:Arial, Helvetica, sans-serif;}
+
+.jmlbtn2 input{  color: #FFF;margin-top: 10px;BORDER-LEFT: 0px;WIDTH: 250px;HEIGHT: 32px;FONT-SIZE: 14px;VERTICAL-ALIGN: middle;BORDER-TOP: 0px;CURSOR: pointer;FONT-WEIGHT: bold;MARGIN-RIGHT: 10px;BORDER-RIGHT: 0px;PADDING-TOP: 0px;background: #FE4818;border-radius: 15px;border-bottom: 2px solid #A92502;font: 18px/1.4 Tahoma,"\5FAE\8F6F\96C5\9ED1",Verdana,"\5B8B\4F53",Arial,sans-serif;line-height: 20px;}
+
+.joymodlogin a{color:#333;text-decoration:none;}
+.joymodlogin a:hover{color:#333;text-decoration:underline;}
+
+.joymodlogin h3{font-size:12px;line-height:30px;padding:0 0 0 8px;height:30px;overflow:hidden;}
+.joymodlogin h3 em{float:left;padding-left:22px;height:28px;overflow:hidden;*background-position:-142px -1px;}
+.joymodlogin h3 span{float:right;width:47px;height:29px;overflow:hidden;text-indent:-9999px;cursor:pointer;}
+.joymodlogin h3 span a{width:47px;height:29px;display:block;}
+.user{
+  float:left;
+  padding-left:45px;
+  
+  } 
+.password{
+  float:left;
+  padding-left:45px;
+  color:#cccccc;
+  }
+.denglu_02{
+  float:left;
+  padding-left:10px;
+  padding-top:15px;
+  }
+.denglu_03{
+  padding-left:30px;
+    margin-bottom: 28px;
+  }
+  
+.denglu_03 p{
+  color: #666;
+    font: 12px/13px Tahoma,'\5FAE\8F6F\96C5\9ED1',Verdana,'\5B8B\4F53',Arial,sans-serif;
+  }
+  
+.denglu_03 a{
+  color:#FF50A5;
+  font-size:14px;
+  line-height:24px;
+  }
+
+.denglu_03 a:hover{
+  font-size:14px;
+  line-height:24px;
+  color:#F00;
+  text-decoration:none;
+  }
+  
+.denglu_03 a.zhuche {
+display: block;
+ margin-top:13px;
+ width: 200px;
+ height: 53px;
+ line-height:53px;
+ border-radius: 5px;
+ color: #fff;
+ background: #FE4818; 
+ text-align: center;  
+ font: 16px/53px Tahoma,'\5FAE\8F6F\96C5\9ED1',Verdana,'\5B8B\4F53',Arial,sans-serif;
+}
+
+.denglu_03 a.zhuche:hover{
+display: block;
+ margin-top:13px;
+ width: 200px;
+ height: 53px;
+ line-height:53px;
+ border-radius: 5px;
+ color: #fff;
+ background: #E03306; 
+ text-align: center;  
+ font: 16px/53px Tahoma,'\5FAE\8F6F\96C5\9ED1',Verdana,'\5B8B\4F53',Arial,sans-serif;
+}
+
+.jmlbtn2 input:hover{color: #FFF;margin-top: 10px;BORDER-LEFT: 0px;WIDTH: 250px;HEIGHT: 32px;FONT-SIZE: 14px;VERTICAL-ALIGN: middle;BORDER-TOP: 0px;CURSOR: pointer;FONT-WEIGHT: bold;MARGIN-RIGHT: 10px;BORDER-RIGHT: 0px;PADDING-TOP: 0px;background: #E03306;border-radius: 15px;border-bottom: 2px solid #A92502;font: 18px/1.4 Tahoma,"\5FAE\8F6F\96C5\9ED1",Verdana,"\5B8B\4F53",Arial,sans-serif;line-height: 20px;}
+.denglu_01{
+  width:310px;
+  height:170px;
+  float:left;
+  } 
+.liubai{
+  width:502px;
+  height:80px;
+  float:left;
+  }
+
+.login_bodya{ width:600px; height:170px; float:left;padding-left: 40px; }
+.jmllogin1 UL {
+  PADDING-BOTTOM: 0px; WIDTH: 300px; PADDING-RIGHT: 0px; FLOAT: left; overflow:hidden;  PADDING-TOP: 5px}
+.jmllogin1 UL LI {
+  PADDING-BOTTOM: 10px; LINE-HEIGHT: 22px; HEIGHT: 34px}
+.jmllogin1 UL LI INPUT {
+  border:1px #bebebe solid; border-radius:15px; WIDTH: 230px;  HEIGHT: 32px; line-height:32px;}
+.jmllogin1 UL LI INPUT:focus{
+  border: 1px solid #FF50A5;
+box-shadow: 0px 0px 5px 1px rgba(251, 40, 142, 0.25);}  
+  
+.jmllogin1 UL LI LABEL {
+  TEXT-ALIGN: right; WIDTH: 50px; FLOAT: left; MARGIN-RIGHT: 9px}
+.jmllogin1 UL LI EM {
+  PADDING-LEFT: 9px}
+.jmllogin1 UL LI EM A {
+  COLOR: #004a99; TEXT-DECORATION: underline}
+.jmllogin1 UL LI EM A:hover {
+  COLOR: #004a99}
+.jmllogin1 UL LI.spe1 {
+  PADDING-BOTTOM: 0px; PADDING-LEFT: 60px; COLOR: #ff0101; _padding-left: 62px}
+.jmlbtn1 {
+  PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; WIDTH: 252px; PADDING-RIGHT: 0px; FLOAT: left; HEIGHT: 25px; PADDING-TOP: 10px; _height: 21px;  font: 12px/1.8 Tahoma,"\5FAE\8F6F\96C5\9ED1",Verdana,"\5B8B\4F53",Arial,sans-serif;}
+.jmllogin1 .jmlbtn1 INPUT {
+  MARGIN: 5px 5px 0px 0px; FLOAT: left}
+.jmllogin1 .jmlbtn2 {
+  PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; WIDTH: 250px; PADDING-RIGHT: 0px; FLOAT: left; HEIGHT: 37px; PADDING-TOP: 20px; _padding: 2px 0 0 112px}
+.jmllogin1 .jmlbtn2 INPUT {
+  margin-top:10px;
+  BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; WIDTH: 250px;  HEIGHT: 32px; FONT-SIZE: 14px; VERTICAL-ALIGN: middle; BORDER-TOP: 0px; CURSOR: pointer; FONT-WEIGHT: bold; MARGIN-RIGHT: 10px; BORDER-RIGHT: 0px; PADDING-TOP: 0px;  background: #FE4818;border-radius: 15px;border-bottom: 2px solid #A92502;font: 18px/1.4 Tahoma,"\5FAE\8F6F\96C5\9ED1",Verdana,"\5B8B\4F53",Arial,sans-serif;  line-height: 20px;}    .jmllogin1 .jmlbtn2 INPUT:hover { margin-top:10px;  BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; WIDTH: 250px;  HEIGHT: 32px; FONT-SIZE: 14px; VERTICAL-ALIGN: middle; BORDER-TOP: 0px; CURSOR: pointer; FONT-WEIGHT: bold; MARGIN-RIGHT: 10px; BORDER-RIGHT: 0px; PADDING-TOP: 0px;  background: #E03306;border-radius: 15px;border-bottom: 2px solid #A92502;font: 18px/1.4 Tahoma,"\5FAE\8F6F\96C5\9ED1",Verdana,"\5B8B\4F53",Arial,sans-serif;  line-height: 20px;}  
+.jmllogin1 .jmlren1 {
+  PADDING-BOTTOM: 0px; LINE-HEIGHT: 20px; MARGIN: 0px auto; PADDING-LEFT: 30px; WIDTH: 415px; PADDING-RIGHT: 0px; HEIGHT: 29px; CLEAR: both; PADDING-TOP: 0px}
+.jmllogin1 .jmlren1 IMG {FLOAT: left; MARGIN-RIGHT: 5px}
+.jmllogin1 .jmlren1 SPAN {WIDTH: 145px; FLOAT: left}
+.jmllogin1 .jmlren1 A {COLOR: #004a99}
+.jmllogin1 .jmlren1 A:hover {COLOR: #004a99}
+
+
+</style>
+
+</head>
+
+<body onload="init();">
+<!-- 登录层 -->
+<div class="joymodlogin" style="width: 645px;height:444px; border-radius:8px;">
+  <h3><span title="关闭"><a href="javascript:parent.UAC.closeUAC();">关闭</a></span></h3>
+  <div class="liubai"></div>
+  <div class="login_bodya">
+    <div class="denglu_01">
+
+      <form method="post" id="loginform">
+      <input type="hidden" name="ajax" value="1">
+      <input type="hidden" name="submit" value="1">
+      <input type="hidden" name="option" value="username">
+      <div class="jmllogin1" id="div_login" style="float:left;display:">
+        <ul>
+          <li class="spe1"><span id="login_info"></span></li>
+          <li><input class="user" onfocus="if(this.value=='用户名') {this.value='';}this.style.color='#555';" onblur="if(this.value=='') {this.value='用户名';this.style.color='rgb(173, 173, 173)';}" value="用户名" type="text" name="username" id="username"/></li>
+          <li><input class="password" onfocus="if(this.value=='密码') {this.value='';this.type='password';}this.style.color='#555';" onblur="if(this.value=='') {this.value='密码';this.style.color='rgb(173, 173, 173)';this.type='text';}" value="密码" type="password" name="password" id="password"/></li>
+          <li>
+          <input name="captcha" style="width: 135px;padding-left: 45px" class="text input-xlarge" id="captcha" type="text" onfocus="showcaptcha();" placeholder="验证码" onkeyup="checkcaptcha(this.value);" onblur="checkcaptcha(this.value);" />&nbsp;<img src="/skin/ds/image/loading.gif" title="验证码,看不清楚?请点击刷新&#10;字母不区分大小写" id="captchapng" style="display: none;" onclick="reloadcaptcha();"/><span id="ccaptcha"></span>
+          </li>
+        </ul>
+        <div class="jmlbtn1">
+          <div style="float:left">
+            <input type="checkbox" name="cookietime" value="1" id="cookietime" checked/>
+            <span>下次自动登录</span>
+          </div>
+          <div style="float:right">
+            <a href="send.php" target="_parent">忘记密码？</a>
+          </div>
+        </div>
+        <div class="jmlbtn2">
+          <input type="button" id="btn_login" value="登&nbsp;&nbsp;&nbsp;&nbsp;录" onclick="login();" />
+        </div>
+        <div class="jmlren1">
+        </div>
+      </div>
+      </form>
+    </div>
+    <div class="denglu_02">
+      <div class="denglu_05">
+        <div class="denglu_03">
+          <p style="">
+            还没有帐号：
+          </p>
+          <a class="zhuche" href="register.php" target="_parent" style="">注册账号</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+document.domain ="{$DT['roodomain']}";
+function init(){
+  if(parent.UAC!=null)
+    parent.UAC.iframeReady = true;
+}
+function showcaptcha() {
+  Dd('captchapng').style.display = 'inline-block';
+  if (Dd('captchapng').src.indexOf('loading.gif') != -1) {
+    Dd('captchapng').src = '/api/captcha.png.php?action=image';
+  }
+  if (Dd('captcha').value == '点击显示') {
+    Dd('captcha').value = '';
+  }
+}
+
+function login(){
+  $.ajax({
+    url : 'login.php',
+    type: 'post',
+    data : $("#loginform").serialize(),
+    success : function(data){
+      if(data!=null&&data!=""){
+        var obj = eval("("+data+")");
+        if(obj.code == "000000"){
+          var json = {};
+          json.isLogin = "1";
+          json.connectType = 0;
+          json.connectId = "";
+          json.userInfo = {};
+          json.userInfo.userName = obj.user.userName;
+          json.userInfo.userId = obj.user.userId;
+          json.userInfo.nickName = obj.user.nick;
+          parent.UAC.showUserInfo(json);
+          parent.UAC.closeUAC();
+          $(window.parent.document).find(".pri_login").empty();
+        }else if(obj.code == "001004"){
+          $("#login_info").text("用户名或密码错误");
+        }else if(obj.code == '001001'){
+          $("#login_info").text("验证码错误");
+        }else{
+          $("#login_info").text("你的帐户未审核");
+        }
+      }
+    }
+  });
+}
+
+function reloadcaptcha() {
+  Dd('captchapng').src = '/api/captcha.png.php?action=image&refresh=' + Math.random();
+  Dd('ccaptcha').innerHTML = '';
+  Dd('captcha').value = '';
+}
+
+function checkcaptcha(s) {
+  if (!is_captcha(s)) return;
+  $.post(AJPath, 'action=captcha&captcha=' + s, function(data) {
+    if (data == '0') {
+      Dd('ccaptcha').className = "check_right";
+    } else {
+      Dd('captcha').focus;
+      Dd('ccaptcha').className = "check_error";
+    }
+  });
+}
+
+function is_captcha(v) {
+  if (v == '点击显示') return false;
+  if (v.match(/^[a-z0-9A-Z]{1,}$/)) {
+    return v.match(/^[a-z0-9A-Z]{4,}$/);
+  } else {
+    return v.length > 1;
+  }
+}
+if (Dd('username').value == '') {
+  Dd('username').focus();
+} else {
+  Dd('password').focus();
+}
+
+function Dcheck() {
+  if (Dd('username').value == '') {
+    confirm('请输入登录名称');
+    Dd('username').focus();
+    return false;
+  }
+  if (Dd('password').value == '') {
+    confirm('请输入密码');
+    Dd('password').focus();
+    return false;
+  }
+  if (!is_captcha(Dd('captcha').value)) {
+    confirm('请填写验证码');
+    Dd('captcha').focus();
+    return false;
+  }
+  return true;
+}
+</script>
+</body>
+</html>

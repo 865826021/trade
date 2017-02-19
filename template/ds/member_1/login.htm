@@ -1,0 +1,65 @@
+{template 'header'}
+<div class="m clearfix">
+	<div class="loginbox">
+		<div class="form-title font-orange">欢迎登录{$DT[sitename]}</div>
+		<div class="form-content">
+          <form method="post" action="{$DT[file_login]}" onsubmit="return Dcheck();">
+            <input type="hidden" name="option" value="username">
+            <div class="control relative">
+              <input type="text" name="username" id="username" class="text input-xlarge" placeholder="用户名" >
+            </div>
+            <div class="control relative">
+              <input type="password" name="password" id="password" class="text input-xlarge" placeholder="密码" >
+            </div>
+             {if $MOD[captcha_login]}
+            <div class="control relative captchatext">
+              {template 'captcha', 'chip'}
+            </div>
+            {/if}
+            <button type="submit" name="submit" value="登 录" class="btn btn-login">登录</button>
+             <div class="controls clearfix">
+              <label><input type="checkbox" name="cookietime" value="1" id="cookietime"{if $MOD[login_remember]} checked{/if}/>&nbsp;下次自动登录</label>
+              <a href="send.php" class="forget" target="_blank">忘记密码？</a>
+              <a href="{$DT[file_register]}?forward={urlencode($forward)}" >立即注册</a>
+            </div>
+            {if $oa}
+            <div class="connect-login">
+              使用其他方式登录
+				{loop $OAUTH $k $v}
+				{if $v[enable]}<a href="{DT_PATH}api/oauth/{$k}/connect.php" title="{$v[name]}"><img src="{DT_PATH}api/oauth/{$k}/ico.png" alt="{$v[name]}"/></a> &nbsp;{/if}
+				{/loop}
+            </div>
+            {/if}
+          </form>
+        </div>
+	</div>
+</div>
+
+<script type="text/javascript">
+if(Dd('username').value == '') {
+	Dd('username').focus();
+} else {
+	Dd('password').focus();
+}
+function Dcheck() {
+	if(Dd('username').value == '') {
+		confirm('请输入登录名称');
+		Dd('username').focus();
+		return false;
+	}
+	if(Dd('password').value == '') {
+		confirm('请输入密码');
+		Dd('password').focus();
+		return false;
+	}
+{if $MOD[captcha_login]}
+	if(!is_captcha(Dd('captcha').value)) {
+		confirm('请填写验证码');
+		Dd('captcha').focus();
+		return false;
+	}
+{/if}
+	return true;
+}
+</script>
+{template 'footer'}

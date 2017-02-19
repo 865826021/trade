@@ -1,0 +1,97 @@
+{template 'header'}
+<div class="main">
+  <div class="mainnr">
+    <div class="newsleft">
+      <div class="nybanner">{ad(26)}</div>
+      <div class="newsleftnr">
+        <h3><span>
+        	<!--{php $thiscat = tag("table=category&condition=parentid=333&pagesize=6&order=listorder,catid&template=null");}-->
+        	<!--{loop $thiscat $_cat}-->
+        		<a href="{$MOD[linkurl]}{$_cat[linkurl]}">{$_cat[catname]}</a>
+        	<!--{/loop}-->
+				<em><a href="{$MOD[linkurl]}{rewrite('list.php?catid=333')}">最新</a></em></span><b>{$maincat[333][catname]}</b>
+		</h3>
+        <dl class="newsxq">
+        	<h4 class="clearfix">
+        		<!--{php $_list = tag("moduleid=21&catid=333&condition=status=3 and thumb<>''&pagesize=2&order=addtime desc&template=null")}-->
+        		<!--{loop $_list $_l}-->
+        			<a href="{$_l[linkurl]}"><img src="{$_l[thumb]}" alt="{$_l[alt]}" width="196" height="124" /></a>
+        		<!--{/loop}-->
+        	</h4>
+       		<!--{php $_list = tag("moduleid=21&catid=333&condition=status=3&length=42&offset=0&pagesize=8&order=addtime desc&template=null")}-->
+       		<!--{loop $_list $i $_l}-->
+       		{if $i>0}<dd>{else}<dt>{/if}
+       			<a href="{$_l[linkurl]}">{$_l[title]}</a>
+       		{if $i>0}</dd>{else}</dt>{/if}
+       		<!--{/loop}-->
+        </dl>
+        
+        <dl class="newsxq">
+       		<!--{php $_list = tag("moduleid=21&catid=333&condition=status=3&length=42&offset=8&pagesize=7&order=addtime desc&template=null")}-->
+       		<!--{loop $_list $i $_l}-->
+       			<dd><a href="{$_l[linkurl]}">{$_l[title]}</a></dd>
+       		<!--{/loop}-->
+        </dl>
+        
+         <dl class="newsxq" style="border-bottom:none">
+            <!--{php $_list = tag("moduleid=21&catid=333&condition=status=3&length=42&offset=15&pagesize=5&order=addtime desc&template=null")}-->
+       		<!--{loop $_list $i $_l}-->
+       		{if $i>0}<dd>{else}<dt>{/if}
+       			<a href="{$_l[linkurl]}">{$_l[title]}</a>
+       		{if $i>0}</dd>{else}</dt>{/if}
+       		<!--{/loop}-->
+         </dl>
+      </div>
+      <!--END newsleft-->
+      
+      <div class="newsrightnr">
+       <div class="newsrightxq">
+        <h3><span>
+        	<!--{php $thiscat = tag("table=category&condition=parentid=334&length=42&pagesize=6&order=listorder,catid&template=null");}-->
+        	<!--{loop $thiscat $_cat}-->
+        		<a href="{$MOD[linkurl]}{$_cat[linkurl]}">{$_cat[catname]}</a>
+        	<!--{/loop}-->
+				<em><a href="{$MOD[linkurl]}{rewrite('list.php?catid=334')}">最新</a></em></span><b>{$maincat[334][catname]}</b>
+		</h3>
+         <dl class="newsxq">
+            <!--{php $_list = tag("moduleid=21&catid=334&condition=status=3&length=42&offset=0&pagesize=4&order=addtime desc&template=null")}-->
+       		<!--{loop $_list $i $_l}-->
+       		{if $i>0}<dd>{else}<dt>{/if}
+       			<a href="{$_l[linkurl]}">{$_l[title]}</a>
+       		{if $i>0}</dd>{else}</dt>{/if}
+       		<!--{/loop}-->
+         </dl>
+         
+         <dl class="newsxq" style="border-bottom:none">
+            <!--{php $_list = tag("moduleid=21&catid=334&condition=status=3&length=42&offset=4&pagesize=8&order=addtime desc&template=null")}-->
+       		<!--{loop $_list $i $_l}-->
+       		<dd><a href="{$_l[linkurl]}">{$_l[title]}</a></dd>
+       		<!--{/loop}-->
+         </dl>
+       </div>
+       
+       <div class="newsrightxq2">
+		<h3><span>
+        	<!--{php $thiscat = tag("table=category&condition=parentid=335&pagesize=6&order=listorder,catid&template=null");}-->
+        	<!--{loop $thiscat $_cat}-->
+        		<a href="{$MOD[linkurl]}{$_cat[linkurl]}">{$_cat[catname]}</a>
+        	<!--{/loop}-->
+				<em><a href="{$MOD[linkurl]}{rewrite('list.php?catid=335')}">最新</a></em></span><b>{$maincat[335][catname]}</b>
+		</h3>
+          <ul>
+                <!--{php $_list = tag("moduleid=21&catid=335&condition=status=3 and thumb<>''&length=42&pagesize=4&order=addtime desc&template=null")}-->
+        		<!--{loop $_list $_l}-->
+        			<li><img src="{$_l[thumb]}" alt="{$_l[alt]}" width="70" height="70" /><span><b>{$_l[title]}</b>{dsubstr($_l[introduce], 160, '...')}<a href="{$_l[linkurl]}">【详情】</a></span></li>
+        		<!--{/loop}-->
+          </ul> 
+       </div>
+      </div>
+       <!--END newsright-->
+    </div>
+    <!--END mainleft-->
+    {template 'right'}
+    <!--END mainright-->
+  </div>  
+  <!--END mainnr-->
+</div>
+{template 'footer'}

@@ -1,0 +1,4 @@
+{loop $tags $i $t}
+{if $i==0}<dt><a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></dt>{else}<dd><a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></dd>{/if}
+<a href="#"><img src="{$t[thumb]}" width="138" height="86" /><img src="{$t[thumb]}" width="106" height="86" /></a>
+{/loop}

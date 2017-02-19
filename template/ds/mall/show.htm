@@ -1,0 +1,192 @@
+{template 'header'} 
+<script type="text/javascript">var module_id= {$moduleid},item_id={$itemid},content_id='content',img_max_width={$MOD[max_width]};</script>
+<div class="main">
+	<div class="nymain">
+		<div class="nyleft">
+			<div class="pos">当前位置: <a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; {cat_pos($CAT, ' &raquo; ')}</div>
+			<div class="nyleft_top">
+				<div class="pronr">
+					<div class="v_out v_out_p">
+						<div id="preview" class="spec-preview"> <span class="jqzoom"><img jqimg="{$albums[0]}" src="{$albums[0]}" /></span> </div>
+						<div class="spec-scroll"> <a class="prev">&lt;</a> <a class="next">&gt;</a>
+							<div class="items">
+								<ul>
+								{loop $thumbs $k $v}
+									<li><img bimg="{strstr($v,'.thumb', true)}" src="{$v}" onmousemove="preview(this);"></li>
+								{/loop}
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="pronl">
+						<h3 class="mall_title">{$title}</h3>
+						<ul class="mall_info_list clearfix">
+						{if $CAT[has_price]}
+							<li>
+								<div class="fl f_gray_999">价格：</div>
+								<div class="fl pr mall_price">￥<em>{$price}</em> </div>
+							</li>
+						{/if}
+						{if $brand}
+							<li>
+								<div class="fl f_gray_999">品牌：</div>
+								<div class="fl pr"> <em>{$brand}</em> </div>
+							</li>
+						{/if}
+						{loop $fields_text $v}
+							<li>
+								<div class="fl f_gray_999">{$v[title]}：</div>
+								<div class="fl pr"> <em>{$v[value]}</em> </div>
+							</li>
+						{/loop}
+						</ul>
+						<div class="sh_gouce clearfix">
+							<div class="sh_lijimai"><a href="/mall/buy.php?itemid={$itemid}">立即购买</a></div>
+							<div class="sh_gouwc"><a href="/mall/cart.php?itemid={$itemid}">加入购物车</a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			{loop $fields_editor $v}
+			<div class="bg_white mt15">
+				<div class="js_box">
+					<h4>{$v[title]}</h4>
+					<div class="js_text">
+					　　{$v[value]}
+					</div>
+				</div>
+			</div>
+			{/loop}
+			<div class="bg_white mt15">
+				<div class="js_box">
+					<h4>详细信息</h4>
+					<div class="js_text">
+					　　{$content}
+					</div>
+				</div>
+			</div>
+			{if $videoid}
+			<div class="bg_white mt15">
+				<div class="js_box">
+					<h4>视频</h4>
+					<div class="video_div">
+						<img src="{$video_thumb}" />
+						<div class="play_btn"><img src="{DT_SKIN}image/play_btn.png" /></div>
+					</div>
+				</div>
+			</div>
+			{/if}
+			<div class="bg_white mt15">
+				<div class="js_box">
+					<h4>联系方式</h4>
+					<div class="js_text">
+					　　<table class="js_textw3">
+							<tr>
+								<td>联系人：{$member[truename]}({gender($member[gender])})&nbsp;{$member[career]}&nbsp;
+											{if $member[username] && $DT[im_web]}{im_web($member[username].'&mid='.$moduleid.'&itemid='.$itemid)}&nbsp;{/if}
+											{if $member[qq] && $DT[im_qq]}{im_qq($member[qq])}&nbsp;{/if}
+											{if $member[ali] && $DT[im_ali]}{im_ali($member[ali])}&nbsp;{/if}
+											{if $member[msn] && $DT[im_msn]}{im_msn($member[msn])}&nbsp;{/if}
+											{if $member[skype] && $DT[im_skype]}{im_skype($member[skype])}&nbsp;{/if}
+											[{if online($member[userid])==1}<font class="f_red">当前在线</font>{else}<font class="f_gray">当前离线</font>{/if}]
+											</td>
+								<td>　　联系电话：<span style="display: inline-table;">{anti_spam($member[telephone])}</span></td>
+							</tr>
+							<tr>
+								<td>所在地：{area_pos($member[areaid], '-')}</td><td>　　地　　址：{if $member[address]}{$member[address]}{/if}</td>
+							</tr>
+
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!--END mainleft-->
+		<div class="nyright">
+			<div class="nyright_top">
+				<h3>投资评审-中国专家</h3>
+				<dl>
+				<!--{php $list=tag("moduleid=16&condition=status=3 and thumb<>'' and catid=342&pagesize=9&order=addtime desc,vip desc&template=null")}-->
+				{loop $list $v}
+					<dd> <img src="{$v[thumb]}" width="118" height="113" /><span>{$v[title]}<b>{$v[zhuanjiachengwei]}</b><a href="{$v[linkurl]}">详情</a></span> </dd>
+				{/loop}
+					<dt> <a class="more" href="#">了解更多</a> </dt>
+				</dl>
+			</div>
+			<div class="nyright_con">
+				<h3>投资评审-中国专家</h3>
+				<dl>
+				<!--{php $list=tag("moduleid=16&condition=status=3 and thumb<>'' and catid=343&pagesize=9&order=addtime desc,vip desc&template=null")}-->
+				{loop $list $v}
+					<dd> <img src="{$v[thumb]}" width="118" height="113" /><span>{$v[title]}<b>{$v[zhuanjiachengwei]}</b><a href="{$v[linkurl]}">详情</a></span> </dd>
+				{/loop}
+					<dt> <a class="more" href="#">了解更多</a> </dt>
+				</dl>
+			</div>
+			<div class="nyright_bot">
+				<h3> 法律服务<span>LEGAL SERVICES</span> </h3>
+				<div class="alone_block_showpage">
+		       		<!--{php $list=tag("table=webpage&condition=itemid=6&pagesize=1&template=null")}-->
+		       		{$list[0][content]}
+		       </div>
+			</div>
+		</div>
+		<!--END mainright--> 
+	</div>
+	<!--END mainnr--> 
+</div>
+<script type="text/javascript" src="{DT_STATIC}file/script/jquery.jqzoom.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/mall-show.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/layer/layer.js"></script>
+{if $content} 
+<script type="text/javascript" src="{DT_STATIC}file/script/content.js"></script> 
+{/if} 
+<script type="text/javascript">
+$('.play_btn').on('click', function(){
+    layer.open({
+		type: 2,
+		title: '{$video_t}',
+		shadeClose: true,
+		shade: 0.8,
+		area: ['{$video_w}px', '{$video_h}px'],
+		content: '/mall/show.php?videoid={$videoid}'
+	});
+});
+var mallurl = '{$MOD[linkurl]}';
+var mallid = {$itemid};
+var n_c = {$comments};
+var n_o = {$orders};
+//var c_c = Dd('c_comment').innerHTML;
+//var c_o = Dd('c_order').innerHTML;
+var s_s = {'1':0,'2':0,'3':0};
+var m_l = {
+	no_comment:'暂无评论',
+	no_order:'暂无交易',
+	no_goods:'商品不存在或已下架',
+	no_self:'不能添加自己的商品',
+	lastone:''
+};
+</script> 
+<script type="text/javascript" src="{DT_STATIC}file/script/mall.js"></script> 
+<script type="text/javascript">
+{if $P1}addE(1);{/if}
+{if $P2}addE(2);{/if}
+{if $P3}addE(3);{/if}
+if(window.location.href.indexOf('#') != -1) {
+	var t = window.location.href.split('#');
+	try {Mshow(t[1]);} catch(e) {}
+}
+</script> 
+{if $video_i}<script type="text/javascript" src="{DT_STATIC}file/script/player.js"></script>{/if}
+{if $content}<script type="text/javascript" src="{DT_STATIC}file/script/content.js"></script>{/if}
+{if $video_i}
+<script type="text/javascript">
+if(UA.match(/(iphone|ipad|ipod|android|mac os)/i)) {
+	if(Dd('player').innerHTML.indexOf('embed')!=-1) {
+		Dd('player').innerHTML = '<div class="player">'+player('{$video_s}', {$video_w}, {$video_h}, 0, {$video_a})+'</div>';
+	}
+}
+</script>
+{/if}
+{template 'footer'}
